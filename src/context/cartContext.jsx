@@ -22,8 +22,26 @@ export const CartProvider = ({ children }) => {
         })
     }
 
+    const removeFromCart = (item) => {
+        setAllItems((prevItems) => {
+            return prevItems.map((prevItem) => {
+                return prevItem.id === item.id ? {...prevItem, inCart: false, quanlity: 1} : prevItem
+            })
+        })
+    }
+
+    const updateQuantity = (cartItem, amount) => {
+        setAllItems((prevItems) => {
+            return prevItems.map((item) => {
+                console.log("Cart Item - " + cartItem + " amount - " + amount)
+                console.log("egg - " +  item.quantity + amount )
+                return item.id === cartItem.id ? {...item, quantity: item.quantity + amount} : item
+            })
+        })
+    }
+
     return (
-        <CartContext.Provider value={{ allItems, setItems, addToCart }}>
+        <CartContext.Provider value={{ allItems, setItems, addToCart, removeFromCart, updateQuantity }}>
             {children}
         </CartContext.Provider>
     )
