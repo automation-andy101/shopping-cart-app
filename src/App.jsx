@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 import CartItem from "./components/CartItem"
 import { useCart } from "./context/cartContext"
+import ShoppingCart from "./components/ShoppingCart"
 
 const App = () => {
   const { allItems, setItems } = useCart()
@@ -18,6 +19,7 @@ const App = () => {
       <h1 className="text-5xl italic text-gray-500 mb-16">
         Trend Alert: Must-Have Outfits of the Season
       </h1>
+      <ShoppingCart />
       <div className="grid grid-cols-3 place-items-start gap-10">
         {allItems?.map((item) => {
           return (

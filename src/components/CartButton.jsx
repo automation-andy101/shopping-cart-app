@@ -26,7 +26,6 @@ const CartButton = ({ item }) => {
                                     } else {
                                         updateQuantity(item, -1)
                                     }
-                                    updateQuantity(item)
                                 }}
                             >
                                 -

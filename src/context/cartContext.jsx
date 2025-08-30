@@ -33,8 +33,6 @@ export const CartProvider = ({ children }) => {
     const updateQuantity = (cartItem, amount) => {
         setAllItems((prevItems) => {
             return prevItems.map((item) => {
-                console.log("Cart Item - " + cartItem + " amount - " + amount)
-                console.log("egg - " +  item.quantity + amount )
                 return item.id === cartItem.id ? {...item, quantity: item.quantity + amount} : item
             })
         })
