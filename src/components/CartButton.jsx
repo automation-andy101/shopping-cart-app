@@ -1,11 +1,11 @@
 import React from 'react'
 import { useCart } from '../context/cartContext'
 
-const CartButton = ({ item }) => {
+const CartButton = ({ item, fromCart }) => {
     const { addToCart, removeFromCart, updateQuantity } = useCart()
 
     return (
-        <div className='w-max absolute right-5 top-5'>
+        <div className={`w-max absolute right-5 top-5 ${fromCart && 'scale-90'}`}>
             <div className='space-x-3'>
                 {!item.inCart ? (
                     <button
