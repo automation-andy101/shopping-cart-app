@@ -8,7 +8,7 @@ const ShoppingCart = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [cartItems, setCartItems] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
-    const { allItems } = useCart()
+    const { allItems, setLocalStorage } = useCart()
 
     useEffect(() => {
         const inCartItems = allItems.filter((items) => items.inCart)
@@ -19,6 +19,7 @@ const ShoppingCart = () => {
         }, 0)
 
         setTotalPrice(price)
+        setLocalStorage()
     }, [allItems])
 
     return (
